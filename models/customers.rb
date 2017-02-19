@@ -19,6 +19,8 @@ def save
 end
 
 def self.all
+sql = "SELECT * FROM customers"
+return SqlRunner.run(sql).map {|customer| Customer.new(customer)}
 end
 
 def update

@@ -18,7 +18,8 @@ def save
 end
 
 def self.all
-
+sql = "SELECT * FROM films"
+return SqlRunner.run(sql).map{|film| Film.new(film)}
 end
 
 def update
