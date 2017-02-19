@@ -19,11 +19,13 @@ def save
 end
 
 def self.all
-sql = "SELECT * FROM customers"
+sql = "SELECT * FROM customers;"
 return SqlRunner.run(sql).map {|customer| Customer.new(customer)}
 end
 
 def update
+sql = "UPDATE customers SET (name, funds) = ('#{name}', #{funds}) WHERE id = #{@id};"
+SqlRunner.run(sql)
 end
 
 def delete

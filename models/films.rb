@@ -12,13 +12,13 @@ def initialize( options )
 end
 
 def save
-  sql = "INSERT INTO films (title, price) VALUES ('#{@title}', #{@price}) RETURNING id"
+  sql = "INSERT INTO films (title, price) VALUES ('#{@title}', #{@price}) RETURNING id;"
   @id = SqlRunner.run(sql).first['id'].to_i
   return @id
 end
 
 def self.all
-sql = "SELECT * FROM films"
+sql = "SELECT * FROM films;"
 return SqlRunner.run(sql).map{|film| Film.new(film)}
 end
 

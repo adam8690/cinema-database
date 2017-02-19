@@ -18,16 +18,17 @@ return @id
 end
 
 def self.all
-sql = "SELECT * FROM tickets"
+sql = "SELECT * FROM tickets;"
 return SqlRunner.run(sql).map {|ticket| Ticket.new(ticket)}
 end
 
 def update
-sql = "UPDATE tickets SET (customer_id, film_id) = (#{customer_id}, #{film_id} WHERE id = #{@id}"
+sql = "UPDATE tickets SET (customer_id, film_id) = (#{customer_id}, #{film_id}) WHERE id = #{@id};"
+SqlRunner.run(sql)
 end
 
 def delete
-sql = "DELETE FROM tickets WHERE id = #{@id}"
+sql = "DELETE FROM tickets WHERE id = #{@id};"
 SqlRunner.run(sql)
 end
 
