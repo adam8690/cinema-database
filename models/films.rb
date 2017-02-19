@@ -18,16 +18,23 @@ def save
 end
 
 def self.all
-sql = "SELECT * FROM films;"
-return SqlRunner.run(sql).map{|film| Film.new(film)}
+  sql = "SELECT * FROM films;"
+  return SqlRunner.run(sql).map{|film| Film.new(film)}
 end
 
 def update
-
+  sql = "UPDATE films SET (title, price) = ('#{title}', #{price}) WHERE id = #{@id}"
+  SqlRunner.run(sql)
 end
 
 def delete
+sql = "DELETE FROM films WHERE id = #{@id}"
+SqlRunner.run(sql)
+end
 
+def self.delete_all
+  sql = "DELETE FROM films;"
+  SqlRunner.run(sql)
 end
 
 end
