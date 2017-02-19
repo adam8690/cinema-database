@@ -23,7 +23,7 @@ return SqlRunner.run(sql).map {|ticket| Ticket.new(ticket)}
 end
 
 def update
-
+sql = "UPDATE tickets SET (customer_id, film_id) = (#{customer_id}, #{film_id} WHERE id = #{@id}"
 end
 
 def delete
