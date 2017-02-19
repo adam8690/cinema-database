@@ -38,6 +38,17 @@ def self.delete_all
   SqlRunner.run(sql)
 end
 
+def buy_ticket(film)
+  @funds = @funds - film.price
+  ticket = Ticket.new({'customer_id' => @id, 'film_id' => film.id})
+  ticket.save
+  self.update
+end
 
+def tickets
+  sql = "SELECT * FROM tickets INNER JOIN customers ON customers.id = tickets.customer_id WHERE customer_id = #{@id};"
+  tickets = SqlRunner.run(sql)
+  return tickets.map {|ticket|}.length
+end
 
 end

@@ -37,10 +37,4 @@ def self.delete_all
   SqlRunner.run(sql)
 end
 
-
-
-
-
-
-
 end
