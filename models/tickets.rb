@@ -27,7 +27,8 @@ sql = "UPDATE tickets SET (customer_id, film_id) = (#{customer_id}, #{film_id} W
 end
 
 def delete
-
+sql = "DELETE FROM tickets WHERE id = #{@id}"
+SqlRunner.run(sql)
 end
 
 
