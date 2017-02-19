@@ -13,38 +13,19 @@ end
 
 
 def save
-
+  sql = "INSERT INTO customers (name, funds) VALUES ('#{@name}', #{@funds}) RETURNING id;"
+  @id = SqlRunner.run(sql)[0]['id'].to_i
+  return @id
 end
 
 def self.all
-
 end
 
 def update
-
 end
 
 def delete
-
 end
-
-end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 end

@@ -12,7 +12,9 @@ def initialize( options )
 end
 
 def save
-
+  sql = "INSERT INTO films (title, price) VALUES ('#{@title}', #{@price}) RETURNING id"
+  @id = SqlRunner.run(sql).first['id'].to_i
+  return @id
 end
 
 def self.all
@@ -26,14 +28,5 @@ end
 def delete
 
 end
-
-end
-
-
-
-
-
-
-
 
 end

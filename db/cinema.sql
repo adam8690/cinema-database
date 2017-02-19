@@ -5,13 +5,13 @@ DROP TABLE films;
 CREATE TABLE customers(
 id SERIAL4 PRIMARY KEY,
 name VARCHAR(255),
-funds MONEY
+funds DECIMAL
 );
 
 CREATE TABLE films(
 id SERIAL4 PRIMARY KEY,
 title VARCHAR(255),
-price MONEY
+price DECIMAL
 );
 
 CREATE TABLE tickets(
